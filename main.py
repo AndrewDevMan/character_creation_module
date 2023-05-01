@@ -2,6 +2,7 @@ from random import randint
 
 
 def attack(char_name: str, char_class: str) -> str:
+    """Расчёт удара."""
     if char_class == 'warrior':
         damage = 5 + randint(3, 5)
         return (f'{char_name} нанёс урон противнику равный {damage}')
@@ -15,6 +16,7 @@ def attack(char_name: str, char_class: str) -> str:
 
 
 def defence(char_name: str, char_class: str) -> str:
+    """Расчёт защиты."""
     if char_class == 'warrior':
         shield = 10 + randint(5, 10)
         return (f'{char_name} блокировал {shield} урона')
@@ -28,6 +30,7 @@ def defence(char_name: str, char_class: str) -> str:
 
 
 def special(char_name: str, char_class: str) -> str:
+    """Расчёт особой способности."""
     if char_class == 'warrior':
         special_bonus = 80 + 25
         return (f'{char_name} применил специальное умение «Выносливость '
@@ -44,6 +47,7 @@ def special(char_name: str, char_class: str) -> str:
 
 
 def start_training(char_name: str, char_class: str) -> str:
+    """Тренеровка."""
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
     if char_class == 'mage':
@@ -68,6 +72,7 @@ def start_training(char_name: str, char_class: str) -> str:
 
 
 def choice_char_class() -> str:
+    """Выбор класса."""
     approve_choice: str = ''
     char_class: str = ''
     while approve_choice != 'y':
@@ -87,18 +92,3 @@ def choice_char_class() -> str:
                                'любую другую кнопку, чтобы выбрать другого '
                                'персонажа ').lower()
     return char_class
-
-
-def main() -> None:
-    print('Приветствую тебя, искатель приключений!')
-    print('Прежде чем начать игру...')
-    char_name: str = input('...назови себя: ')
-    print(f'Здравствуй, {char_name}! '
-          'Сейчас твоя выносливость — 80, атака — 5 и защита — 10.')
-    print('Ты можешь выбрать один из трёх путей силы:')
-    print('Воитель, Маг, Лекарь')
-    char_class: str = choice_char_class()
-    print(start_training(char_name, char_class))
-
-
-main()
